@@ -5,7 +5,6 @@ import Person from '../components/Person';
 import Example from '../components/Example';
 import Button from '../components/button/Button';
 import Dz1 from '../components/dz1/Dz1';
-import Modal from '../components/modal/Modal';
 import Count from '../components/count/Count';
 import Input from '../components/input/Input';
 import List from '../components/list/List';

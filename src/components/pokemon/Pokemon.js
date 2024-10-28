@@ -1,10 +1,12 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
+import Modal from './ModalPokemon';
 import classes from './Pokemon.module.scss';
 
 const Pokemon = ({ pokemon }) => {
     const [pokemonDetails, setPokemonDetails] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const fetchDetails = useCallback(async () => {
+    const fetchDetails = async () => {
         try {
             const response = await fetch(pokemon.url);
             const data = await response.json();
@@ -12,12 +14,19 @@ const Pokemon = ({ pokemon }) => {
         } catch (error) {
             console.error('Failed to fetch Pokémon details', error);
         }
-    }, [pokemon.url]);
+    };
 
     useEffect(() => {
         fetchDetails();
-    }, [fetchDetails]);
+    }, []);
 
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <div className={classes.pokemoncard}>
@@ -25,9 +34,11 @@ const Pokemon = ({ pokemon }) => {
             {pokemonDetails && (
                 <img src={pokemonDetails.sprites.other['official-artwork'].front_default} alt={pokemon.name} />
             )}
-            <button className={classes.detailsbutton}>Подробнее</button>
+            <button className={classes.detailsbutton} onClick={handleOpenModal}>Подробнее</button>
+            <Modal isOpen={isModalOpen} onClose={handleCloseModal} pokemon={pokemonDetails} />
         </div>
-    );    
+    );
 };
 
 export default Pokemon;
+

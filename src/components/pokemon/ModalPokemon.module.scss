@@ -1,0 +1,66 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8); // Более темный фон
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: #222; // Темный фон для модального окна
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: white; // Цвет текста
+    overflow: hidden; // Предотвращение переполнения
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #ff00ff; // Цвет кнопки закрытия
+    width: 40px; // Фиксированная ширина
+    height: 40px; // Фиксированная высота
+    cursor: pointer;
+    padding: 0; // Уберите внутренние отступы
+    transition: color 0.3s ease; // Плавный переход цвета
+}
+
+.closeButton:hover {
+    color: #e600e6; // Цвет кнопки закрытия при наведении
+}
+
+h2 {
+    margin: 0 0 10px 0; // Отступы для заголовка
+    font-size: 24px; // Размер шрифта заголовка
+}
+
+img {
+    width: 100px; // Фиксированная ширина изображения
+    height: auto; // Автоматическая высота
+    margin-bottom: 10px; // Отступ между изображением и текстом
+}
+
+p {
+    margin: 5px 0; // Отступы для абзацев
+    font-size: 16px; // Размер шрифта для текста
+}
+
+// Установка box-sizing для всех элементов
+*,
+*::before,
+*::after {
+    box-sizing: border-box; // Устанавливаем box-sizing для всех элементов
+}
