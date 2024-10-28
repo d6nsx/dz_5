@@ -1,0 +1,37 @@
+.pokemonpage {
+    text-align: center;
+    color: white;
+    background-color: #000;
+    padding: 20px;
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+
+        button {
+            background-color: #555;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+
+            &:disabled {
+                background-color: #333;
+                cursor: not-allowed;
+            }
+
+            &:hover:not(:disabled) {
+                background-color: #777;
+            }
+        }
+    }
+}
